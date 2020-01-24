@@ -1,0 +1,92 @@
+
+entity  CategorieTV{
+	libele String required,
+    description String
+}
+entity  CategorieVOD{
+	libele String required,
+    description String
+}
+
+entity Chaine{
+	libelle String required,
+    description String,
+    lien String required,
+    pathLogo String,
+    resume String
+}
+
+entity RessourceVOD{
+	libelle String required,
+    description String,
+    lienRessourceVOD String required,
+    pathLogo String,
+    resume String
+}
+
+entity Packages{
+	libelle String required,
+    description String,
+    prixtUnitaire Double,
+    pathLogo String,
+    resume String
+}
+
+entity Abonnement{
+	libelle String required,
+    description String,
+    dateDebut LocalDate required,
+    dateFin LocalDate required,
+    lienRessourceVOD String,
+    lienRessourceTv String,
+    statut StatutAbonnement 
+}
+
+enum StatutAbonnement{
+    ACTIVE, DESACTIVE
+}
+
+entity Client{
+	nom String required,
+    login String,
+    password String required,
+    description String 
+}
+
+entity Adresse{
+	pays String ,
+    region String,
+    ville String required,
+    telephone1 String,
+    telephone2 String,
+}
+
+
+// defining multiple OneToMany relationships with comments
+relationship ManyToOne {
+	Chaine {categorieT} to CategorieTV ,
+	RessourceVOD{categorieVOD} to CategorieVOD,
+    Abonnement {packages} to Packages,
+    Abonnement {client} to Client
+}
+
+relationship ManyToMany {
+	Packages {packagehaine} to Chaine ,
+	Packages{packageVOD} to RessourceVOD
+}
+
+relationship OneToOne {
+	Client {adresse} to Adresse 
+}
+
+
+paginate all with pagination
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
