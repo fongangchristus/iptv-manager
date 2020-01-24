@@ -1,0 +1,23 @@
+{
+  "iptvmanagerApp": {
+    "categorieTV": {
+      "home": {
+        "title": "CategorieTVS",
+        "createLabel": "Créer un nouveau Categorie TV",
+        "createOrEditLabel": "Créer ou éditer un Categorie TV",
+        "notFound": "Aucun Categorie TV trouvé"
+      },
+      "created": "Un nouveau Categorie TV a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Categorie TV avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Categorie TV avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Categorie TV {{ id }} ?"
+      },
+      "detail": {
+        "title": "Categorie TV"
+      },
+      "libele": "Libele",
+      "description": "Description"
+    }
+  }
+}

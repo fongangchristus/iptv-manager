@@ -1,0 +1,79 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="iptvmanagerApp.chaine.home.title">Chaines</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-chaine" [routerLink]="['/chaine/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="iptvmanagerApp.chaine.home.createLabel">
+            Create a new Chaine
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="chaines?.length === 0">
+        <span jhiTranslate="iptvmanagerApp.chaine.home.notFound">No chaines found</span>
+    </div>
+    <div class="table-responsive" *ngIf="chaines?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="iptvmanagerApp.chaine.libelle">Libelle</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="description"><span jhiTranslate="iptvmanagerApp.chaine.description">Description</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="lien"><span jhiTranslate="iptvmanagerApp.chaine.lien">Lien</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="code"><span jhiTranslate="iptvmanagerApp.chaine.code">Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="pathLogo"><span jhiTranslate="iptvmanagerApp.chaine.pathLogo">Path Logo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="resume"><span jhiTranslate="iptvmanagerApp.chaine.resume">Resume</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="categorieTId"><span jhiTranslate="iptvmanagerApp.chaine.categorieT">Categorie T</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let chaine of chaines ;trackBy: trackId">
+                <td><a [routerLink]="['/chaine', chaine.id, 'view' ]">{{chaine.id}}</a></td>
+                <td>{{chaine.libelle}}</td>
+                <td>{{chaine.description}}</td>
+                <td>{{chaine.lien}}</td>
+                <td>{{chaine.code}}</td>
+                <td>{{chaine.pathLogo}}</td>
+                <td>{{chaine.resume}}</td>
+                <td>
+                    <div *ngIf="chaine.categorieTId">
+                        <a [routerLink]="['/categorie-tv', chaine.categorieTId , 'view' ]" >{{chaine.categorieTId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/chaine', chaine.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/chaine', chaine.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(chaine)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="chaines?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

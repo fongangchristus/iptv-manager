@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-packages-heading" jhiTranslate="iptvmanagerApp.packages.home.createOrEditLabel">Create or edit a Packages</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="iptvmanagerApp.packages.libelle" for="field_libelle">Libelle</label>
+                    <input type="text" class="form-control" name="libelle" id="field_libelle"
+                           formControlName="libelle"/>
+                    <div *ngIf="editForm.get('libelle')!.invalid && (editForm.get('libelle')!.dirty || editForm.get('libelle')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('libelle')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="iptvmanagerApp.packages.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="iptvmanagerApp.packages.prixtUnitaire" for="field_prixtUnitaire">Prixt Unitaire</label>
+                    <input type="number" class="form-control" name="prixtUnitaire" id="field_prixtUnitaire"
+                           formControlName="prixtUnitaire"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="iptvmanagerApp.packages.pathLogo" for="field_pathLogo">Path Logo</label>
+                    <input type="text" class="form-control" name="pathLogo" id="field_pathLogo"
+                           formControlName="pathLogo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="iptvmanagerApp.packages.resume" for="field_resume">Resume</label>
+                    <input type="text" class="form-control" name="resume" id="field_resume"
+                           formControlName="resume"/>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="iptvmanagerApp.packages.packagechaine" for="field_packagechaines">Packagechaine</label>
+                    <select class="form-control" id="field_packagechaines" multiple name="packagechaines" formControlName="packagechaines">
+                        <option [ngValue]="getSelected(editForm.get('packagechaines')!.value, chaineOption)" *ngFor="let chaineOption of chaines; trackBy: trackById">{{chaineOption.code}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="iptvmanagerApp.packages.packageVOD" for="field_packageVODS">Package VOD</label>
+                    <select class="form-control" id="field_packageVODS" multiple name="packageVODS" formControlName="packageVODS">
+                        <option [ngValue]="getSelected(editForm.get('packageVODS')!.value, ressourceVODOption)" *ngFor="let ressourceVODOption of ressourcevods; trackBy: trackById">{{ressourceVODOption.code}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

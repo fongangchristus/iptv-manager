@@ -1,0 +1,28 @@
+{
+  "iptvmanagerApp": {
+    "packages": {
+      "home": {
+        "title": "Packages",
+        "createLabel": "Créer un nouveau Packages",
+        "createOrEditLabel": "Créer ou éditer un Packages",
+        "notFound": "Aucun Packages trouvé"
+      },
+      "created": "Un nouveau Packages a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Packages avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Packages avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Packages {{ id }} ?"
+      },
+      "detail": {
+        "title": "Packages"
+      },
+      "libelle": "Libelle",
+      "description": "Description",
+      "prixtUnitaire": "Prixt Unitaire",
+      "pathLogo": "Path Logo",
+      "resume": "Resume",
+      "packagechaine": "Packagechaine",
+      "packageVOD": "Package VOD"
+    }
+  }
+}

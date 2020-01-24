@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="packages">
+            <h2><span jhiTranslate="iptvmanagerApp.packages.detail.title">Packages</span> {{packages.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="iptvmanagerApp.packages.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{packages.libelle}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.packages.description">Description</span></dt>
+                <dd>
+                    <span>{{packages.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.packages.prixtUnitaire">Prixt Unitaire</span></dt>
+                <dd>
+                    <span>{{packages.prixtUnitaire}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.packages.pathLogo">Path Logo</span></dt>
+                <dd>
+                    <span>{{packages.pathLogo}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.packages.resume">Resume</span></dt>
+                <dd>
+                    <span>{{packages.resume}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.packages.packagechaine">Packagechaine</span></dt>
+                <dd>
+                    <span *ngFor="let packagechaine of packages.packagechaines; let last = last">
+                        <a [routerLink]="['/chaine', packagechaine?.id, 'view' ]">{{packagechaine.code}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.packages.packageVOD">Package VOD</span></dt>
+                <dd>
+                    <span *ngFor="let packageVOD of packages.packageVODS; let last = last">
+                        <a [routerLink]="['/ressource-vod', packageVOD?.id, 'view' ]">{{packageVOD.code}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/packages', packages.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

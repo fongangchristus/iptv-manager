@@ -1,0 +1,9 @@
+{
+  "iptvmanagerApp": {
+    "StatutAbonnement": {
+      "null": "",
+      "ACTIVE": "ACTIVE",
+      "DESACTIVE": "DESACTIVE"
+    }
+  }
+}

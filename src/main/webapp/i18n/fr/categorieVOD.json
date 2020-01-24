@@ -1,0 +1,23 @@
+{
+  "iptvmanagerApp": {
+    "categorieVOD": {
+      "home": {
+        "title": "CategorieVODS",
+        "createLabel": "Créer un nouveau Categorie VOD",
+        "createOrEditLabel": "Créer ou éditer un Categorie VOD",
+        "notFound": "Aucun Categorie VOD trouvé"
+      },
+      "created": "Un nouveau Categorie VOD a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Categorie VOD avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Categorie VOD avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Categorie VOD {{ id }} ?"
+      },
+      "detail": {
+        "title": "Categorie VOD"
+      },
+      "libele": "Libele",
+      "description": "Description"
+    }
+  }
+}

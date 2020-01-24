@@ -1,0 +1,29 @@
+{
+  "iptvmanagerApp": {
+    "ressourceVOD": {
+      "home": {
+        "title": "Ressource VODS",
+        "createLabel": "Create a new Ressource VOD",
+        "createOrEditLabel": "Create or edit a Ressource VOD",
+        "notFound": "No Ressource VODS found"
+      },
+      "created": "A new Ressource VOD is created with identifier {{ param }}",
+      "updated": "A Ressource VOD is updated with identifier {{ param }}",
+      "deleted": "A Ressource VOD is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ressource VOD {{ id }}?"
+      },
+      "detail": {
+        "title": "Ressource VOD"
+      },
+      "libelle": "Libelle",
+      "description": "Description",
+      "lienRessourceVOD": "Lien Ressource VOD",
+      "pathLogo": "Path Logo",
+      "code": "Code",
+      "resume": "Resume",
+      "categorieVOD": "Categorie VOD",
+      "packages": "Packages"
+    }
+  }
+}

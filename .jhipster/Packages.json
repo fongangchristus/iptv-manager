@@ -1,0 +1,56 @@
+{
+    "name": "Packages",
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prixtUnitaire",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "pathLogo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "resume",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "chaine",
+            "otherEntityRelationshipName": "packages",
+            "relationshipName": "packagechaine",
+            "otherEntityField": "code",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "ressourceVOD",
+            "otherEntityRelationshipName": "packages",
+            "relationshipName": "packageVOD",
+            "otherEntityField": "code",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20200124155524",
+    "entityTableName": "packages",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="chaine">
+            <h2><span jhiTranslate="iptvmanagerApp.chaine.detail.title">Chaine</span> {{chaine.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="iptvmanagerApp.chaine.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{chaine.libelle}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.chaine.description">Description</span></dt>
+                <dd>
+                    <span>{{chaine.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.chaine.lien">Lien</span></dt>
+                <dd>
+                    <span>{{chaine.lien}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.chaine.code">Code</span></dt>
+                <dd>
+                    <span>{{chaine.code}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.chaine.pathLogo">Path Logo</span></dt>
+                <dd>
+                    <span>{{chaine.pathLogo}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.chaine.resume">Resume</span></dt>
+                <dd>
+                    <span>{{chaine.resume}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.chaine.categorieT">Categorie T</span></dt>
+                <dd>
+                    <div *ngIf="chaine.categorieTId">
+                        <a [routerLink]="['/categorie-tv', chaine.categorieTId, 'view']">{{chaine.categorieTId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/chaine', chaine.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

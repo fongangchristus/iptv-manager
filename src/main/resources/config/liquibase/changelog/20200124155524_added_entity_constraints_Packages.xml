@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Packages.
+    -->
+    <changeSet id="20200124155524-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="packages_id"
+                                 baseTableName="packages_packagechaine"
+                                 constraintName="fk_packages_packagechaine_packages_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="packages"/>
+
+        <addForeignKeyConstraint baseColumnNames="packagechaine_id"
+                                 baseTableName="packages_packagechaine"
+                                 constraintName="fk_packages_packagechaine_packagechaine_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="chaine"/>
+        
+        <addForeignKeyConstraint baseColumnNames="packages_id"
+                                 baseTableName="packages_packagevod"
+                                 constraintName="fk_packages_packagevod_packages_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="packages"/>
+
+        <addForeignKeyConstraint baseColumnNames="packagevod_id"
+                                 baseTableName="packages_packagevod"
+                                 constraintName="fk_packages_packagevod_packagevod_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ressource_vod"/>
+        
+    </changeSet>
+</databaseChangeLog>
