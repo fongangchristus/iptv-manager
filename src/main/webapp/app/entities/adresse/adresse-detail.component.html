@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="adresse">
+            <h2><span jhiTranslate="iptvmanagerApp.adresse.detail.title">Adresse</span> {{adresse.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="iptvmanagerApp.adresse.pays">Pays</span></dt>
+                <dd>
+                    <span>{{adresse.pays}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.adresse.region">Region</span></dt>
+                <dd>
+                    <span>{{adresse.region}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.adresse.ville">Ville</span></dt>
+                <dd>
+                    <span>{{adresse.ville}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.adresse.telephone1">Telephone 1</span></dt>
+                <dd>
+                    <span>{{adresse.telephone1}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.adresse.telephone2">Telephone 2</span></dt>
+                <dd>
+                    <span>{{adresse.telephone2}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/adresse', adresse.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

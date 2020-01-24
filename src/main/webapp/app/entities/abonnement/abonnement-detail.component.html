@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="abonnement">
+            <h2><span jhiTranslate="iptvmanagerApp.abonnement.detail.title">Abonnement</span> {{abonnement.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="iptvmanagerApp.abonnement.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{abonnement.libelle}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.abonnement.description">Description</span></dt>
+                <dd>
+                    <span>{{abonnement.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.abonnement.dateDebut">Date Debut</span></dt>
+                <dd>
+                    <span>{{abonnement.dateDebut}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.abonnement.dateFin">Date Fin</span></dt>
+                <dd>
+                    <span>{{abonnement.dateFin}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.abonnement.lienRessourceVOD">Lien Ressource VOD</span></dt>
+                <dd>
+                    <span>{{abonnement.lienRessourceVOD}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.abonnement.lienRessourceTv">Lien Ressource Tv</span></dt>
+                <dd>
+                    <span>{{abonnement.lienRessourceTv}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.abonnement.statut">Statut</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'iptvmanagerApp.StatutAbonnement.' + abonnement.statut}}">{{abonnement.statut}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.abonnement.packages">Packages</span></dt>
+                <dd>
+                    <div *ngIf="abonnement.packagesId">
+                        <a [routerLink]="['/packages', abonnement.packagesId, 'view']">{{abonnement.packagesId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.abonnement.client">Client</span></dt>
+                <dd>
+                    <div *ngIf="abonnement.clientId">
+                        <a [routerLink]="['/client', abonnement.clientId, 'view']">{{abonnement.clientId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/abonnement', abonnement.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

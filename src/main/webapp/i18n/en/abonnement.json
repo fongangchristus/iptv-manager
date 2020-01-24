@@ -1,0 +1,30 @@
+{
+  "iptvmanagerApp": {
+    "abonnement": {
+      "home": {
+        "title": "Abonnements",
+        "createLabel": "Create a new Abonnement",
+        "createOrEditLabel": "Create or edit a Abonnement",
+        "notFound": "No Abonnements found"
+      },
+      "created": "A new Abonnement is created with identifier {{ param }}",
+      "updated": "A Abonnement is updated with identifier {{ param }}",
+      "deleted": "A Abonnement is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Abonnement {{ id }}?"
+      },
+      "detail": {
+        "title": "Abonnement"
+      },
+      "libelle": "Libelle",
+      "description": "Description",
+      "dateDebut": "Date Debut",
+      "dateFin": "Date Fin",
+      "lienRessourceVOD": "Lien Ressource VOD",
+      "lienRessourceTv": "Lien Ressource Tv",
+      "statut": "Statut",
+      "packages": "Packages",
+      "client": "Client"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "iptvmanagerApp": {
+    "chaine": {
+      "home": {
+        "title": "Chaines",
+        "createLabel": "Créer un nouveau Chaine",
+        "createOrEditLabel": "Créer ou éditer un Chaine",
+        "notFound": "Aucun Chaine trouvé"
+      },
+      "created": "Un nouveau Chaine a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Chaine avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Chaine avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Chaine {{ id }} ?"
+      },
+      "detail": {
+        "title": "Chaine"
+      },
+      "libelle": "Libelle",
+      "description": "Description",
+      "lien": "Lien",
+      "code": "Code",
+      "pathLogo": "Path Logo",
+      "resume": "Resume",
+      "categorieT": "Categorie T",
+      "packages": "Packages"
+    }
+  }
+}

@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ressourceVOD">
+            <h2><span jhiTranslate="iptvmanagerApp.ressourceVOD.detail.title">Ressource VOD</span> {{ressourceVOD.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="iptvmanagerApp.ressourceVOD.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ressourceVOD.libelle}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.ressourceVOD.description">Description</span></dt>
+                <dd>
+                    <span>{{ressourceVOD.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.ressourceVOD.lienRessourceVOD">Lien Ressource VOD</span></dt>
+                <dd>
+                    <span>{{ressourceVOD.lienRessourceVOD}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.ressourceVOD.pathLogo">Path Logo</span></dt>
+                <dd>
+                    <span>{{ressourceVOD.pathLogo}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.ressourceVOD.code">Code</span></dt>
+                <dd>
+                    <span>{{ressourceVOD.code}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.ressourceVOD.resume">Resume</span></dt>
+                <dd>
+                    <span>{{ressourceVOD.resume}}</span>
+                </dd>
+                <dt><span jhiTranslate="iptvmanagerApp.ressourceVOD.categorieVOD">Categorie VOD</span></dt>
+                <dd>
+                    <div *ngIf="ressourceVOD.categorieVODId">
+                        <a [routerLink]="['/categorie-vod', ressourceVOD.categorieVODId, 'view']">{{ressourceVOD.categorieVODId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ressource-vod', ressourceVOD.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

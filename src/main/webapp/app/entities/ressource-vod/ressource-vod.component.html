@@ -1,0 +1,79 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="iptvmanagerApp.ressourceVOD.home.title">Ressource VODS</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-ressource-vod" [routerLink]="['/ressource-vod/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="iptvmanagerApp.ressourceVOD.home.createLabel">
+            Create a new Ressource VOD
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="ressourceVODS?.length === 0">
+        <span jhiTranslate="iptvmanagerApp.ressourceVOD.home.notFound">No ressourceVODS found</span>
+    </div>
+    <div class="table-responsive" *ngIf="ressourceVODS?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="iptvmanagerApp.ressourceVOD.libelle">Libelle</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="description"><span jhiTranslate="iptvmanagerApp.ressourceVOD.description">Description</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="lienRessourceVOD"><span jhiTranslate="iptvmanagerApp.ressourceVOD.lienRessourceVOD">Lien Ressource VOD</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="pathLogo"><span jhiTranslate="iptvmanagerApp.ressourceVOD.pathLogo">Path Logo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="code"><span jhiTranslate="iptvmanagerApp.ressourceVOD.code">Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="resume"><span jhiTranslate="iptvmanagerApp.ressourceVOD.resume">Resume</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="categorieVODId"><span jhiTranslate="iptvmanagerApp.ressourceVOD.categorieVOD">Categorie VOD</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ressourceVOD of ressourceVODS ;trackBy: trackId">
+                <td><a [routerLink]="['/ressource-vod', ressourceVOD.id, 'view' ]">{{ressourceVOD.id}}</a></td>
+                <td>{{ressourceVOD.libelle}}</td>
+                <td>{{ressourceVOD.description}}</td>
+                <td>{{ressourceVOD.lienRessourceVOD}}</td>
+                <td>{{ressourceVOD.pathLogo}}</td>
+                <td>{{ressourceVOD.code}}</td>
+                <td>{{ressourceVOD.resume}}</td>
+                <td>
+                    <div *ngIf="ressourceVOD.categorieVODId">
+                        <a [routerLink]="['/categorie-vod', ressourceVOD.categorieVODId , 'view' ]" >{{ressourceVOD.categorieVODId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/ressource-vod', ressourceVOD.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/ressource-vod', ressourceVOD.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(ressourceVOD)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="ressourceVODS?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>
